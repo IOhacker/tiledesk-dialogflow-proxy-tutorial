@@ -197,7 +197,7 @@ app.post('/dfwebhook/:project_id', (req, res) => {
   if (intent === "2.INFORMACIONACLARACIONDEPEDIDOS") {
     //if (resbody && resbody.token) {
       //const tdclient = new TiledeskClient()
-      const tdclient = new TiledeskChatbotClient({request: req})
+      const tdclient = new TiledeskChatbotClient({request: req.body})
       tdclient.openNow(function(isopen) {
         var df_res = {}
         if (isopen) {
