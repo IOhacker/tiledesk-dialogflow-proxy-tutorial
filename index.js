@@ -195,12 +195,8 @@ app.post('/dfwebhook/:project_id', (req, res) => {
   const intent = req.body.queryResult.intent.displayName.toUpperCase()
   console.log("Body log:", req.body)
   if (intent === "2.INFORMACIONACLARACIONDEPEDIDOS") {
-    //if (resbody && resbody.token) {
-      const tdclient = new TiledeskChatbotClient(
-        {
-          request: req,
-          APIKEY: '__APIKEY__'
-        }); 
+    if (responses && responses.token) {
+      const tdclient = new TiledeskChatbotClient(); 
       tdclient.openNow(function(isopen) {
         var df_res = {}
         if (isopen) {
@@ -211,7 +207,7 @@ app.post('/dfwebhook/:project_id', (req, res) => {
         }
         res.status(200).send(JSON.stringify(df_res));
       });
-    //}
+    }
   }
 });
 
