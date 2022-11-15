@@ -193,7 +193,8 @@ app.post('/dfwebhook/:project_id', (req, res) => {
   // replace the following with your prject id
   const project_id = req.params.project_id
   const intent = req.body.queryResult.intent.displayName.toUpperCase()
-  if (intent === "2.InformacionAclaracionDePedidos") {
+  console.log("INTENT: ",intent);
+  if (intent === "2.INFORMACIONACLARACIONDEPEDIDOS") {
     if (resbody && resbody.token) {
       const tdclient = new TiledeskClient()
       tdclient.openNow(function(isopen) {
