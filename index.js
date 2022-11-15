@@ -194,7 +194,7 @@ app.post('/dfwebhook/:project_id', (req, res) => {
   const project_id = req.params.project_id
   const intent = req.body.queryResult.intent.displayName.toUpperCase()
   if (intent === "2.INFORMACIONACLARACIONDEPEDIDOS") {
-    if (resbody && resbody.token) {
+    //if (resbody && resbody.token) {
       const tdclient = new TiledeskClient()
       tdclient.openNow(function(isopen) {
         var df_res = {}
@@ -206,7 +206,7 @@ app.post('/dfwebhook/:project_id', (req, res) => {
         }
         res.status(200).send(JSON.stringify(df_res));
       });
-    }
+    //}
   }
 });
 
