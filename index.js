@@ -195,7 +195,7 @@ app.post('/dfwebhook/:project_id', (req, res) => {
   const intent = req.body.queryResult.intent.displayName.toUpperCase()
   console.log("Body log:", req.body)
   if (intent === "2.INFORMACIONACLARACIONDEPEDIDOS") {
-    if (responses && responses.token) {
+    if (res && res.token) {
       const tdclient = new TiledeskChatbotClient(); 
       tdclient.openNow(function(isopen) {
         var df_res = {}
